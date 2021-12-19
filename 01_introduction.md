@@ -33,7 +33,7 @@ without the overhead of a database installation. DB Fiddle can be found [here](h
 
 Key features of the DB Fiddle appliaction are:
 
-TODO: db-fiddle dashboard image
+![db_fiddle_dashboard.PNG](_resources/50ba3bd542aa435aa9fc02843e2aec6e.PNG)
 
 **Database Selector** – SQL syntax differs slightly depending on versions and solution providers. Select 
 the target database solution using this dropdown to ensure that the SQL code enters is compatible. 
