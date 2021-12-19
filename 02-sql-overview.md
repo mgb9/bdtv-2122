@@ -39,7 +39,7 @@ DQL contains a single SQL command:
 The SELECT command is a powerful command and is the single command used to extract data from 
 the database. The syntax of the SELECT command is represented in this diagram:
 
-![SELECT command syntax](images/select-syntax.PNG)
+![select-syntax](https://user-images.githubusercontent.com/49883951/146683687-0875d684-5500-4ede-a378-bc645ac66f2e.PNG)
 
 As you can see there is a wide array of options that can be used in conjunction with SELECT. We 
 will work through the options highlighted in blue using examples in this workbook.
