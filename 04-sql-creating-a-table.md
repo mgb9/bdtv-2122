@@ -91,3 +91,62 @@ PRIMARY KEY (`product_id`)
 ```
  
 This specified that the field `product_id` is to be the primary key for this table.
+
+## Compound or Composite Keys
+ 
+The example below details the syntax when a combination of fields are used to create the primary 
+key for a table.
+ 
+```sql
+-- create the sample_map_table table
+CREATE TABLE `sample_map_table` (
+ `other_table_id_1` int(11) NOT NULL,
+ `other_table_id_2` int(11) NOT NULL,
+ `detail` varchar(64) NOT NULL,
+ PRIMARY KEY (`other_table_id_1`,`other_table_id_2`)
+);
+```
+
+It is quite common to identify a table with a composite primary key i.e. the combination of two fields 
+becomes unique and therefor can be used as the primary key to identify the row.
+ 
+An example of where a composite key would be used is in the example below, where a database is 
+designed to store student test results.
+ 
+We have two main tables – students & test. The table test_results holds the score for a student for a 
+test. Working on the logic that a student can only sit a test once, the combination of the fields 
+student_id & test_id in the test_results table are unique, hence can be used in conjunction as a 
+primary key.
+ 
+![composite-keys](https://user-images.githubusercontent.com/49883951/146684590-071d3d9f-e705-40c9-a460-286949415e7a.PNG)
+
+## Foreign Keys
+ 
+We can map our foreign keys when creating a table, this can be done as in the example below:
+ 
+```sql
+CREATE TABLE `shipping` (
+ `shipping_id` int(11) NOT NULL AUTO_INCREMENT,
+ `shipping_courier_id` int(11) NOT NULL,
+ `shipping_date` date NOT NULL,
+ PRIMARY KEY (`shipping_id`),
+ CONSTRAINT `fk_shipping_id` FOREIGN KEY (`shipping_courier_id`) REFERENCES 
+ `shipping_courier`(`shipping_courier_id`)
+);
+```
+ 
+The lines highlighted are detailing a foreign key constraint on the table. It is called a constraint as 
+this table now expects the foreign key to be valid i.e. exists.
+ 
+The syntax of the foreign key constraint is:
+ 
+```
+CONSTRAINT `<foreign key name>` FOREIGN KEY (`<this table field name>`) REFERENCES 
+`<foreign table name>`(`<foreign table foreign reference field>`)
+```
+
+It is not mandatory to detail the foreign keys but can be useful when using the database to enforce 
+business logic.
+ 
+The code in the example file shows two insert statements, one will fail, one will succeed. You will 
+need to comment/uncomment the relevant lines to test both scenarios.
