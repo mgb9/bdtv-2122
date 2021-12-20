@@ -204,3 +204,78 @@ for manipulating text are:
 - UPPER() to convert a string to uppercase
 - LOWER() to convert a string to lowercase
 - CONCAT() to join 2 or more strings
+
+Example 17 demonstrates the use of the UPPER() & LOWER() functions:
+
+```sql
+-- example 17 - Upper and Lower functions
+SELECT UPPER(`customer_surname`), LOWER(`customer_firstname`), `county` FROM `orders`;
+```
+
+Example 18 concatenates two fields (customer_firstname & customer_lastname) but also adds a 
+space between the two fields.
+
+```sql
+-- example 18 - Concatenate fields and strings
+SELECT CONCAT(`customer_firstname`, ' ', `customer_surname`) as 'name', `price` FROM `orders`;
+```
+
+## GROUP BY & Aggregate Functions
+
+Sometimes, we may want to group all records of a certain type, we can do this with the GROUP BY 
+keywords.
+
+As an example let look again at the data and extract the count of total orders for each category.
+
+The SQL is found in example 19:
+
+```sql
+-- example 19 - count orders by category
+SELECT `category_id`, COUNT(*) FROM `orders` GROUP BY `category_id`;
+```
+
+So far we have been using the COUNT() function without explanation. COUNT() is part of a group of 
+functions called Aggregate functions as the aggregate data from multiple rows. Aggregate functions 
+work well with the GROUP BY keywords.
+
+Other useful aggregate functions are:
+
+- SUM() total of all values in rows
+- AVG() average of all values in rows
+- MIN() the minimum value found in all rows
+- MAX() the maximum value found in all rows
+
+In example 20, we see all these aggregate functions in actions, when we group all results by category
+id, and then report the number of rows (COUNT), total value of orders (SUM), average price (AVG), 
+maximum price (MAX) & minimum price (MIN).
+
+```sql
+-- example 20 - count, sum, avg, min, max functions
+SELECT `category_id`, COUNT(*), SUM(`price`), AVG(`price`), MIN(`price`), MAX(`price`) FROM `orders` 
+GROUP BY `category_id`;
+```
+
+## Numerical Functions
+
+As we can see in the results from the previous example, sometimes numbers will be returned to 
+many decimal places. We have a set of numerical functions that we can use to improve the 
+presentation, these are:
+
+- ROUND() Round a number to a specific number of decimal places
+- FLOOR() Return the largest integer that is smaller then the given number
+- CEIL() Return the smallest integer that is bigger than the given number
+- TRUNCATE() Returns a given number to a specific number of decimal places (no 
+rounding)
+
+Example 21 demonstrates these functions:
+
+```sql
+-- example 21 - Round, Truncate, Ceil & Floor functions
+SELECT `category_id`, COUNT(*), AVG(`price`) as 'AVG', ROUND(AVG(`price`),2) as 'Round', 
+TRUNCATE(AVG(`price`),2) as 'Truncate', CEIL(AVG(`price`)) as 'Ceil', FLOOR(AVG(`price`)) as 'Floor' FROM 
+`orders` GROUP BY `category_id`;
+```
+
+The difference between ROUND & TRUNCATE, can be seen in the results on the row for category id 
+3. The result of the ROUND has produced 51.95 (correct when we are rounding from 51.947), yet 
+the truncate has simply removed the excess digits and produced 51.94.
