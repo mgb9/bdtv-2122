@@ -39,23 +39,18 @@ INSERT INTO `products` (`category_id`,`name`) VALUES (NULL, "Gents Shoes");
 -- Categories contains 4 rows
 
 
--- default join option - INNER JOIN, returns seven matching rows
+-- example 1 - default join option - INNER JOIN, returns seven matching rows
 
---SELECT * FROM `products` JOIN `categories` ON (`products`.`category_id` = `categories`.`id`);
+-- SELECT * FROM `products` p JOIN `categories` c ON ( p.category_id = c.id );
 
--- INNER JOIN - matches previous example
+-- example 2 - INNER JOIN - matches previous example
 
---SELECT * FROM `products` JOIN `categories` ON (`products`.`category_id` = `categories`.`id`);
+-- SELECT * FROM `products` p INNER JOIN `categories` c ON ( p.category_id = c.id );
 
+-- example 3 - RIGHT JOIN - all rows from categories, with matching rows from products
 
+-- SELECT * FROM `products` p RIGHT JOIN `categories` c ON (p.category_id = c.id);
 
--- RIGHT JOIN - all rows from categories, with matching rows from products
+-- example 4 - LEFT JOIN - all rows from products, with matching rows in categories
 
---SELECT * FROM `products` RIGHT JOIN `categories` ON (`products`.`category_id` = `categories`.`id`);
-
-
-
--- LEFT JOIN - all rows from products, with matching rows in categories
-
---SELECT * FROM `products` LEFT JOIN `categories` ON (`products`.`category_id` = `categories`.`id`);
-
+-- SELECT * FROM `products` p LEFT JOIN `categories` c ON (p.category_id = c.id);
