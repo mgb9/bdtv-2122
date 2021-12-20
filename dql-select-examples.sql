@@ -53,7 +53,7 @@ INSERT INTO `promotions` (`code`, `discount`) VALUES ("PROMO10", "10"),("PROMO15
 -- SQL Query
 --
 
--- simple select
+-- example 1 - simple select
 
 --SELECT * FROM `orders`;
 
@@ -62,9 +62,11 @@ INSERT INTO `promotions` (`code`, `discount`) VALUES ("PROMO10", "10"),("PROMO15
 -- WHERE 
 --
 
+-- example 2 - where customers are registered to receive the newsletter
+
 --SELECT * FROM `orders` WHERE newsletter = 1 ;
 
--- show sales by customers older than 50
+-- example 3 - show sales by customers born before 26th February 1960
 
 --SELECT * FROM `orders` WHERE `date_of_birth` < '1960-02-26';
 
