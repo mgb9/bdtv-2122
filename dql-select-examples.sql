@@ -127,30 +127,39 @@ INSERT INTO `promotions` (`code`, `discount`) VALUES ("PROMO10", "10"),("PROMO15
 -- SELECT FIELDS, Aliases & Functions
 --
 
+-- example 15 - list only the customer_surname, customer_firstname & county fields.
+
 --SELECT `customer_surname`, `customer_firstname`, `county` FROM `orders`;
 
---SELECT UPPER(`customer_surname`), LOWER(`customer_firstname`), `county` FROM `orders`;
+-- example 16 - Alias fields names
 
---SELECT CONCAT(`customer_firstname`, ' ', `customer_surname`), `price` FROM `orders`;
-
---SELECT CONCAT(`customer_firstname`, ' ', `customer_surname`) AS 'Name', `price` AS 'Price' FROM `orders`; 
+-- SELECT `customer_surname` as 'Surname', `customer_firstname` as 'Firstname', `county` as 'County' FROM `orders`;
 
 --
 -- Functions & GROUP BY
 --
 
+-- example 17 - Upper and Lower functions
+
+--SELECT UPPER(`customer_surname`), LOWER(`customer_firstname`), `county` FROM `orders`;
+
+-- example 18 - Concatenate fields and strings
+
+--SELECT CONCAT(`customer_firstname`, ' ', `customer_surname`) AS 'Name', `price` AS 'Price' FROM `orders`; 
+
 -- count number of rows returned
 
 --SELECT COUNT(*) FROM `orders`;
 
--- count records, grouped by category_id
+-- example 19 - count orders by category
 
 --SELECT `category_id`, COUNT(*) FROM `orders` GROUP BY `category_id`;
 
--- count, sum, avg, min, max functions
+-- example 20 - count, sum, avg, min, max functions
 
 --SELECT `category_id`, COUNT(*), SUM(`price`), AVG(`price`), MIN(`price`), MAX(`price`) FROM `orders` GROUP BY `category_id`;
 
--- calculations on the fly
+-- example 21 - Round, Truncate, Ceil & Floor functions
 
---SELECT `category_id`, COUNT(*), SUM(`price`), SUM(`price`) / COUNT(*) as 'calculated average', AVG(`price`) as 'function average' FROM `orders` GROUP BY `category_id`;
+/* SELECT `category_id`, COUNT(*), AVG(`price`) as 'AVG', ROUND(AVG(`price`),2) as 'Round', TRUNCATE(AVG(`price`),2) as 'Truncate',
+CEIL(AVG(`price`)) as 'Ceil', FLOOR(AVG(`price`)) as 'Floor' FROM `orders` GROUP BY `category_id`; */
