@@ -70,34 +70,34 @@ INSERT INTO `promotions` (`code`, `discount`) VALUES ("PROMO10", "10"),("PROMO15
 
 --SELECT * FROM `orders` WHERE `date_of_birth` < '1960-02-26';
 
--- show sales from categories 1,3 & 5
+-- example 4 - show sales from categories 1,3 & 5
 
 --SELECT * FROM `orders` WHERE `category_id` IN (1,3,5);
 
--- show sales not from categories 1 & 2
+-- example 5 - how sales not from categories 1 & 2
 
 --SELECT * FROM `orders` WHERE `category_id` NOT IN (1,2);
 
--- sales from customer living in counties beginning with D
+-- example 6 - sales from customer living in counties beginning with D
 
 --SELECT * FROM `orders` WHERE `county` LIKE 'D%';
 
--- sales from customer living in counties ending with shire
+-- example 7 - sales from customer living in counties ending with shire
 
 --SELECT * FROM `orders` WHERE `county` LIKE '%shire';
 
--- sales from customer living in counties that contain th
+-- example 8 - sales from customer living in counties that contain th
 
 --SELECT * FROM `orders` WHERE `county` LIKE '%th%';
 
 
 -- LOGICAL OPERATORS
 
--- AND, born after DOB 26th Feb 1960 and get newsletters
+-- example 9 - AND, born after DOB 26th Feb 1960 and get newsletters
 
 --SELECT * FROM `orders` WHERE `date_of_birth` > '1960-02-26' AND `newsletter` = '1';
 
--- OR, born before or after the 1970s
+-- example 10 - OR, born before or after the 1970s
 
 --SELECT * FROM `orders` WHERE `date_of_birth` < '1970-01-01' OR `date_of_birth` > '1979-12-31';
 
@@ -105,21 +105,21 @@ INSERT INTO `promotions` (`code`, `discount`) VALUES ("PROMO10", "10"),("PROMO15
 -- ORDER
 --
 
--- show sales in category 3, order by price
+-- example 11 - show sales in category 3, order by product_id
 
---SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `price` ;
+-- SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `product_id` ;
 
--- show sales in category 3, order by price DESC
+-- example 12 - show sales in category 3, order by product_id DESC
 
--- SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `price` DESC;
+-- SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `product_id` DESC;
 
--- show sales in category 3, order by surname, firstname 
+-- example 13 - show sales in category 3, order by surname, firstname
 
---SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `customer_surname`, `customer_firstname`;
+-- SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `customer_surname`, `customer_firstname`;
 
--- show sales in category 3, order by surname DESC, firstname
+-- example 14 - show sales in category 3, order by surname DESC, firstname
 
---SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `customer_surname` DESC, `customer_firstname`;
+-- SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `customer_surname` DESC, `customer_firstname`;
 
 
 
